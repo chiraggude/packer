@@ -213,9 +213,9 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
-iso/CentOS-6.5-x86_64-minimal.iso
-packer_cache/15b900d360b24ef6edb9683bebfbf51219a2ea7a13ed8d70258ebc7c92eebe38.iso
-tzvm-centos-6.5-64bit/tzvm-centos-6.5-64bit.vdi
-tzvm-centos-6.5-64bit/tzvm-centos-6.5-64bit-disk1.vmdk
-tzvm-centos-6.5-64bit/tzvm-centos-6.5-64bit.ovf
+iso/*.iso
+packer_cache/*.iso
+tzvm-centos-6.5-64bit/*.vdi
+tzvm-centos-6.5-64bit/*.vmdk
+tzvm-centos-6.5-64bit/*.ovf
 tzvm.box
