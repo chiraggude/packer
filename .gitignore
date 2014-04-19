@@ -215,3 +215,4 @@ pip-log.txt
 .mr.developer.cfg
 iso/CentOS-6.5-x86_64-minimal.iso
 packer_cache/15b900d360b24ef6edb9683bebfbf51219a2ea7a13ed8d70258ebc7c92eebe38.iso
+*.vdi
