@@ -26,3 +26,9 @@ packer build tzvm.json
 * Built with Packer 0.5.2, Vagrant 1.5.2, VirtualBox 4.3.10
 * Provisioned by Puppet 3.4.3
 * VirtualBox VM - OS: CentOS 6.5 64bit, CPU: 1 Core, RAM: 512MB, HDD: 2GB
+* 
+
+
+#### Roadmap
+* Latest versions of Ruby and Perl
+* OS only vagrant box (tzvm-base)
