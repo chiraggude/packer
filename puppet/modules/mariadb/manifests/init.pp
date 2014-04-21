@@ -1,12 +1,21 @@
 # Install MariaDB
 class mariadb::install {
 
-	$pass = "vagrant"
 
     package { ["MariaDB-server", "MariaDB-client"]:
 		ensure => present,
 		require => Package['php-fpm'],
     }
+	
+		
+	file  {	"/etc/my.cnf.d/my.cnf":
+			ensure => present,
+			owner  => 'mysql',
+			group  => 'mysql',
+			mode   => 644,
+			require => Package["MariaDB-server"],
+			source  => "puppet:///modules/mariadb/my.cnf",
+	}
 	
 	service { "mysql":
 		ensure  => running,
@@ -15,8 +24,8 @@ class mariadb::install {
     }
     
 	exec { "set-mysql-password":
-    unless => "mysqladmin -uroot -p$pass status",
-    command => "mysqladmin -uroot password $pass",
+    unless => "mysqladmin -u root -pvagrant status",
+    command => "mysqladmin -u root password vagrant",
     require => Service["mysql"],
   }
 	

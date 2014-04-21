@@ -52,7 +52,7 @@ file  {	"/home/www/index.php":
 			group  => 'nginx',
 			mode   => 750,
 			require => Package["nginx"],
-			source  => "puppet:///modules/cpg/index.php",
+			source  => "puppet:///modules/turizon/index.php",
 }
 
 # Adminer
@@ -72,13 +72,13 @@ file  {	"/home/www/adminer/adminer-4.1.0-en.php":
 			group  => 'nginx',
 			mode   => 644,
 			require => Package["nginx"],
-			source  => "puppet:///modules/cpg/adminer/adminer-4.1.0-en.php",
+			source  => "puppet:///modules/turizon/adminer/adminer-4.1.0-en.php",
 }
 
 #Linux-Dash
 file { "/home/www/linux-dash" :
       ensure => directory,
-      source => "puppet:///modules/cpg/linux-dash",
+      source => "puppet:///modules/turizon/linux-dash",
       recurse => true,
       owner => "nginx",
       group => "nginx",
@@ -87,17 +87,27 @@ file { "/home/www/linux-dash" :
 
 
 
-#For PHP session (used by Adminer)
+# PHP sessions (used by Adminer)
 file {  "/var/lib/php/session":
 			ensure => 'directory',
+			recurse => true,
 			owner  => 'nginx',
 			group  => 'nginx',
 			mode   => 770,
-			require => Package["nginx"],
-			notify  => Service["nginx"],
+			require => Package["nginx", "php-fpm"],
+			source => "puppet:///modules/php-fpm/session",
 }
 
-
+# Logs
+file  {	"/home/logs":
+			ensure => 'directory',
+			recurse => true,
+			owner  => 'root',
+			group  => 'root',
+			mode   => 750,
+			source  => "puppet:///modules/turizon/logs",
+			before => Package['nginx'],
+}
 
 class { 'nginx::install': }
 class { 'nginx::config': }
