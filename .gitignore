@@ -219,3 +219,4 @@ tzvm-centos-6.5-64bit/*.vdi
 tzvm-centos-6.5-64bit/*.vmdk
 tzvm-centos-6.5-64bit/*.ovf
 tzvm.box
+*.box
