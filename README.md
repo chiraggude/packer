@@ -23,12 +23,15 @@ packer build tzvm.json
 * NGINX 
 * MariaDB 10
 * PHP-FPM 5.6 
-* Built with Packer 0.5.2, Vagrant 1.5.2, VirtualBox 4.3.10
-* Provisioned by Puppet 3.4.3
-* VirtualBox VM - OS: CentOS 6.5 64bit, CPU: 1 Core, RAM: 512MB, HDD: 2GB
-* 
+* Built with Packer 0.5.2, Vagrant 1.5.3, VirtualBox 4.3.10
+* Provisioned by Puppet 3.5.1
+* VirtualBox VM - OS: CentOS 6.5 64bit, CPU: 1 Core, RAM: 512MB, HDD: 3GB
 
+
+#### TZVM-BASE [(download)](https://www.dropbox.com/s/1xlwwumeapenihg/tzvm-base.box)
+* Centos 6.5 64bit
+* Built with Packer 0.5.2, Vagrant 1.5.3, VirtualBox 4.3.10
+* VirtualBox VM - OS: CentOS 6.5 64bit, CPU: 1 Core, RAM: 512MB, HDD: 3GB
 
 #### Roadmap
-* Latest versions of Ruby and Perl
-* OS only vagrant box (tzvm-base)
+* Latest versions of Ruby and RubyGems (required by Puppet)
