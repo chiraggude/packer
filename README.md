@@ -27,14 +27,19 @@ packer build tzvm.json
 * Provisioned by Puppet 3.5.1
 * VirtualBox VM - OS: CentOS 6.5 64bit, CPU: 1 Core, RAM: 512MB, HDD: 3GB
 
-// Last updated on 21st April, 2014
+Last updated on 21st April, 2014
+
+***
 
 #### TZVM-BASE v1.0.2 [(download)](https://www.dropbox.com/s/1xlwwumeapenihg/tzvm-base.box)
 * Centos 6.5 64bit
 * Built with Packer 0.5.2, Vagrant 1.5.3, VirtualBox 4.3.10
 * VirtualBox VM - OS: CentOS 6.5 64bit, CPU: 1 Core, RAM: 512MB, HDD: 3GB
 
-// Last updated on 21st April, 2014
+Last updated on 21st April, 2014
 
-#### Roadmap
+***
+
+
+### Roadmap
 * Latest versions of Ruby and RubyGems (required by Puppet)
