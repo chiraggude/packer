@@ -46,6 +46,7 @@ file {  "/home/www":
 			notify  => Service["nginx"],
 }
 
+# PHP Info
 file  {	"/home/www/index.php":
 			ensure => present,
 			owner  => 'nginx',
@@ -56,23 +57,14 @@ file  {	"/home/www/index.php":
 }
 
 # Adminer
-file {  "/home/www/adminer":
-			ensure => 'directory',
-			owner  => 'nginx',
-			group  => 'nginx',
-			mode   => 750,
-			require => Package["nginx"],
-			notify  => Service["nginx"],
-}
-
-
-file  {	"/home/www/adminer/adminer-4.1.0-en.php":
-			ensure => present,
+file  {	"/home/www/adminer":
+			ensure => directory,
 			owner  => 'nginx',
 			group  => 'nginx',
 			mode   => 644,
 			require => Package["nginx"],
-			source  => "puppet:///modules/turizon/adminer/adminer-4.1.0-en.php",
+			source  => "puppet:///modules/turizon/adminer",
+			recurse => true,
 }
 
 #Linux-Dash
@@ -84,8 +76,6 @@ file { "/home/www/linux-dash" :
       group => "nginx",
       mode => "0770",
 }
-
-
 
 # PHP sessions (used by Adminer)
 file {  "/var/lib/php/session":
