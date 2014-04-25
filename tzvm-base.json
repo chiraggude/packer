@@ -19,7 +19,7 @@
       "ssh_port": 22,
       "ssh_username": "vagrant",
 	  "hard_drive_interface": "sata",
-      "ssh_wait_timeout": "5m",
+      "ssh_wait_timeout": "20m",
       "type": "virtualbox-iso",
       "vboxmanage": [
         [  "modifyvm",  "{{.Name}}",  "--memory",  "512" ],
