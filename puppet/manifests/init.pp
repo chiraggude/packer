@@ -35,7 +35,6 @@ yumrepo { 'mariadb-repo':
 	   gpgkey => "https://yum.mariadb.org/RPM-GPG-KEY-MariaDB",
 }
 
-
 # Create directory for hosting website
 file {  "/home/www":
 			ensure => 'directory',
