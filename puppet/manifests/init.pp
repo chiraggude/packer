@@ -8,8 +8,18 @@ exec {
 	'yum-update':
 	  command => 'yum -y update',
 	  ;
+	  
+	'yum-utils':
+	  command => 'yum -y install yum-utils',
+	  ;
   
-    'nginx-repo':
+    'epel-repo':
+			command => '/bin/rpm -ivh http://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm',
+			creates => "/etc/yum.repos.d/epel.repo",
+			require => Exec["remi-repo"]
+			;
+			
+	'nginx-repo':
 			command => '/bin/rpm -ivh http://nginx.org/packages/rhel/6/noarch/RPMS/nginx-release-rhel-6-0.el6.ngx.noarch.rpm',
 			creates => "/etc/yum.repos.d/nginx.repo"
 			;
@@ -20,8 +30,8 @@ exec {
 			;
 			
 	 'enable-remi-repo':
-	  command => 'yum-config-manager --enable remi, remi-php56',
-	  require => Exec["remi-repo"],
+			command => 'yum-config-manager --enable remi, remi-php56',
+			require => Exec["remi-repo"],
 	  ;
   
 }
