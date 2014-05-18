@@ -97,7 +97,7 @@ file {  "/var/lib/php/session":
 }
 
 # Logs
-file  {	"/home/logs/nginx":
+file  {	["/home/logs", "/home/logs/nginx", "/home/logs/php-fpm"]:
 			ensure => 'directory',
 			recurse => true,
 			owner  => 'root',
@@ -106,50 +106,22 @@ file  {	"/home/logs/nginx":
 			before => Package['nginx'],
 }
 
-file  {	"/home/logs/nginx/access.log":
+file  {	["/home/logs/nginx/access.log", "/home/logs/nginx/error.log"]:
 			ensure => 'present',
-			recurse => true,
 			owner  => 'root',
 			group  => 'root',
 			mode   => 750,
 			require => File['/home/logs/nginx'],
 }
 
-file  {	"/home/logs/nginx/error.log":
+file  {	["/home/logs/php-fpm/www.error.log", "/home/logs/php-fpm/www-slow.log"]:
 			ensure => 'present',
-			recurse => true,
-			owner  => 'root',
-			group  => 'root',
-			mode   => 750,
-			require => File['/home/logs/nginx']
-}
-
-file  {	"/home/logs/php-fpm":
-			ensure => 'directory',
-			recurse => true,
-			owner  => 'root',
-			group  => 'root',
-			mode   => 750,
-			before => Package['nginx'],
-}
-
-file  {	"/home/logs/php-fpm/www.error.log":
-			ensure => 'present',
-			recurse => true,
 			owner  => 'root',
 			group  => 'root',
 			mode   => 750,
 			require => File['/home/logs/php-fpm']
 }
 
-file  {	"/home/logs/php-fpm/www-slow.log":
-			ensure => 'present',
-			recurse => true,
-			owner  => 'root',
-			group  => 'root',
-			mode   => 750,
-			require => File['/home/logs/php-fpm']
-}
 
 class { 'nginx::install': }
 class { 'nginx::config': }
