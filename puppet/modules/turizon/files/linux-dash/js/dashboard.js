@@ -273,7 +273,8 @@ dashboard.getDf = function () {
                 { sTitle: "Use%", sType: "percent" },
                 { sTitle: "Mounted" }
             ],
-            bPaginate: false,
+	    iDisplayLength: 5,
+            bPaginate: true,
             bFilter: false,
             bAutoWidth: true,
             bInfo: false
@@ -460,6 +461,35 @@ dashboard.getBandwidth = function () {
 
 }
 
+dashboard.getSwaps = function () {
+    $.get("sh/swap.php", function (data) {
+        var table = $("#swap_dashboard");
+        var ex = document.getElementById("swap_dashboard");
+        if ($.fn.DataTable.fnIsDataTable(ex)) {
+            table.hide().dataTable().fnClearTable();
+            table.dataTable().fnDestroy();
+        }
+
+        table.dataTable({
+            aaData: data,
+            aoColumns: [
+                { sTitle: "Filename" },
+                { sTitle: "Type"},
+                { sTitle: "Size", sType: "file-size" },
+                { sTitle: "Used", sType: "file-size" },
+                { sTitle: "Priority"}
+            ],
+	    iDisplayLength: 5,
+            bPaginate: true,
+            bFilter: false,
+            bAutoWidth: true,
+            bInfo: false
+        }).fadeIn();
+
+    }, "json");
+
+}
+
 
 /**
  * Refreshes all widgets. Does not call itself recursively.
@@ -488,5 +518,6 @@ dashboard.fnMap = {
     netstat: dashboard.getNetStat,
     dnsmasqleases: dashboard.getDnsmasqLeases,
     bandwidth: dashboard.getBandwidth,
-    ping: dashboard.getPing
+    ping: dashboard.getPing,
+    swap: dashboard.getSwaps
 };
