@@ -18,16 +18,16 @@ packer build tzvm.json
 ```
 
 ## Created with Turizon VM Packer
-#### TZVM v1.0.4 [(download)](https://www.dropbox.com/s/25d8k8f7rl73b75/tzvm.box)
+#### TZVM v1.0.6 [(download)](https://www.dropbox.com/s/25d8k8f7rl73b75/tzvm.box)
 * Centos 6.5 64bit
-* NGINX 
+* NGINX 1.6
 * MariaDB 10
 * PHP-FPM 5.6 
 * Built with Packer 0.5.2, Vagrant 1.5.3, VirtualBox 4.3.10
 * Provisioned by Puppet 3.5.1
 * VirtualBox VM - OS: CentOS 6.5 64bit, CPU: 1 Core, RAM: 512MB, HDD: 3GB
 
-Last updated on 21st April, 2014
+Last updated on 26th April, 2014
 
 ***
 
