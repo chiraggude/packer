@@ -93,7 +93,7 @@ file {  "/var/lib/php/session":
 			owner  => 'nginx',
 			group  => 'nginx',
 			mode   => 770,
-			require => Package["nginx", "php-fpm"]
+			require => Package["nginx", "php-fpm"],
 }
 
 # Logs
@@ -119,7 +119,7 @@ file  {	["/home/logs/php-fpm/www.error.log", "/home/logs/php-fpm/www-slow.log"]:
 			owner  => 'root',
 			group  => 'root',
 			mode   => 750,
-			require => File['/home/logs/php-fpm']
+			require => File['/home/logs/php-fpm'],
 }
 
 
