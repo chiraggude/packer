@@ -93,19 +93,62 @@ file {  "/var/lib/php/session":
 			owner  => 'nginx',
 			group  => 'nginx',
 			mode   => 770,
-			require => Package["nginx", "php-fpm"],
-			source => "puppet:///modules/php-fpm/session",
+			require => Package["nginx", "php-fpm"]
 }
 
 # Logs
-file  {	"/home/logs":
+file  {	"/home/logs/nginx":
 			ensure => 'directory',
 			recurse => true,
 			owner  => 'root',
 			group  => 'root',
 			mode   => 750,
-			source  => "puppet:///modules/turizon/logs",
 			before => Package['nginx'],
+}
+
+file  {	"/home/logs/nginx/access.log":
+			ensure => 'present',
+			recurse => true,
+			owner  => 'root',
+			group  => 'root',
+			mode   => 750,
+			require => File['/home/logs/nginx'],
+}
+
+file  {	"/home/logs/nginx/error.log":
+			ensure => 'present',
+			recurse => true,
+			owner  => 'root',
+			group  => 'root',
+			mode   => 750,
+			require => File['/home/logs/nginx']
+}
+
+file  {	"/home/logs/php-fpm":
+			ensure => 'directory',
+			recurse => true,
+			owner  => 'root',
+			group  => 'root',
+			mode   => 750,
+			before => Package['nginx'],
+}
+
+file  {	"/home/logs/php-fpm/www.error.log":
+			ensure => 'present',
+			recurse => true,
+			owner  => 'root',
+			group  => 'root',
+			mode   => 750,
+			require => File['/home/logs/php-fpm']
+}
+
+file  {	"/home/logs/php-fpm/www-slow.log":
+			ensure => 'present',
+			recurse => true,
+			owner  => 'root',
+			group  => 'root',
+			mode   => 750,
+			require => File['/home/logs/php-fpm']
 }
 
 class { 'nginx::install': }
