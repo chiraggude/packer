@@ -18,21 +18,21 @@ packer build tzvm.json
 ```
 
 ## Created with Turizon VM Packer
-#### TZVM v1.0.6 [(download)](https://www.dropbox.com/s/25d8k8f7rl73b75/tzvm.box)
-* Centos 6.5 64bit
+#### TZVM v1.2 [(download)](https://www.dropbox.com/s/25d8k8f7rl73b75/tzvm.box)
+* Centos 6.5 x86_x64
 * NGINX 1.6
 * MariaDB 10
 * PHP-FPM 5.6 
-* Built with Packer 0.5.2, Vagrant 1.5.3, VirtualBox 4.3.10
-* Provisioned by Puppet 3.5.1
-* VirtualBox VM - OS: CentOS 6.5 64bit, CPU: 1 Core, RAM: 512MB, HDD: 3GB
+* Built with Packer 0.6.0, Vagrant 1.6.3, VirtualBox 4.3.12
+* Provisioned by Puppet 3.6.1
+* VirtualBox VM - OS: CentOS 6.5 64bit, CPU: 2 Cores, RAM: 640MB, HDD: 3GB
 
-Last updated on 26th April, 2014
+Last updated on 7th June, 2014
 
 ***
 
-#### TZVM-BASE v1.0.3 [(download)](https://www.dropbox.com/s/1xlwwumeapenihg/tzvm-base.box)
-* Centos 6.5 64bit
+#### TZVM-BASE v1.0 [(download)](https://www.dropbox.com/s/1xlwwumeapenihg/tzvm-base.box)
+* Centos 6.5 x86_x64
 * Built with Packer 0.5.2, Vagrant 1.5.3, VirtualBox 4.3.10
 * VirtualBox VM - OS: CentOS 6.5 64bit, CPU: 1 Core, RAM: 512MB, HDD: 3GB
 * Firewall (iptables) enabled
@@ -40,6 +40,8 @@ Last updated on 26th April, 2014
 Last updated on 21st April, 2014
 
 ***
+
+##### Top Tip: Shutdown Google Drive/Dropbox if they are monitoring the turizon-packer directory
 
 
 ### Roadmap
