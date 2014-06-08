@@ -15,18 +15,18 @@
       "iso_url": "iso/CentOS-6.5-x86_64-minimal.iso",
       "shutdown_command": "echo 'vagrant'|sudo -S /sbin/halt -h -p",
 	  "shutdown_timeout" : "10s",
-	  "ssh_username": "vagrant",
+	  "ssh_username": "vagrant",	  
       "ssh_password": "vagrant",
-      "ssh_port": 22,      
+	  "ssh_port": 22,	        
 	  "hard_drive_interface": "sata",
-	  "output_directory": "output_files",
+	  "output_directory": "builds",
       "ssh_wait_timeout": "20m",      
       "vboxmanage": [
 			[  "modifyvm",  "{{.Name}}",  "--memory",  "640" ],
 			[  "modifyvm",  "{{.Name}}",  "--cpus",  "2" ]
 		],
       "virtualbox_version_file": ".vbox_version",
-      "vm_name": "tzvm-centos-6.5-64bit"
+      "vm_name": "tzvm"
     }
   ], 
   

@@ -31,17 +31,21 @@ Last updated on 7th June, 2014
 
 ***
 
-#### TZVM-BASE v1.0 [(download)](https://www.dropbox.com/s/1xlwwumeapenihg/tzvm-base.box)
+#### TZVM-BASE v1.1 [(download)](https://www.dropbox.com/s/1xlwwumeapenihg/tzvm-base.box)
 * Centos 6.5 x86_x64
-* Built with Packer 0.5.2, Vagrant 1.5.3, VirtualBox 4.3.10
-* VirtualBox VM - OS: CentOS 6.5 64bit, CPU: 1 Core, RAM: 512MB, HDD: 3GB
-* Firewall (iptables) enabled
+* Built with Packer 0.6.0, Vagrant 1.6.3, VirtualBox 4.3.12
+* VirtualBox VM - OS: CentOS 6.5 64bit, CPU: 2 Cores, RAM: 640MB, HDD: 3GB
 
-Last updated on 21st April, 2014
+Last updated on 7th June, 2014
 
 ***
 
-##### Top Tip: Shutdown Google Drive/Dropbox if they are monitoring the turizon-packer directory
+#### Top Tips
+* Shutdown Google Drive/Dropbox if they are monitoring the turizon-packer directory
+* All .sh files in “scripts” folder need to have Unix style EOL format
+* All .cfg files in “http” folder need to have Unix style EOL format
+* On Windows, set Unix style line endings with Notepad++  > Edit > EOL Conversions
+* To log the kickstart.cfg file, modify the post-install block > %post --log=/root/ks-post.log
 
 
 ### Roadmap

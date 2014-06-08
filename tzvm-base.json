@@ -1,10 +1,11 @@
 {
   "builders": [
-    {
-      "boot_command": [
+    {		
+      "type": "virtualbox-iso",
+	  "boot_command": [
         "<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks-base.cfg<enter><wait>"
       ],
-      "boot_wait": "5s",
+      "boot_wait": "10s",
       "disk_size": 3072,
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "guest_os_type": "RedHat_64",
@@ -12,32 +13,41 @@
       "iso_checksum_type": "md5",
 	  "iso_checksum": "0d9dc37b5dd4befa1c440d2174e88a87",
       "iso_url": "iso/CentOS-6.5-x86_64-minimal.iso",
-      "output_directory": "tzvm-base-centos-6.5-64bit",
       "shutdown_command": "echo 'vagrant'|sudo -S /sbin/halt -h -p",
 	  "shutdown_timeout" : "10s",
-      "ssh_password": "vagrant",
-      "ssh_port": 22,
-      "ssh_username": "vagrant",
+	  "ssh_username": "vagrant",
+	  "ssh_password": "vagrant",
+	  "ssh_port": 22,	  	  
 	  "hard_drive_interface": "sata",
       "ssh_wait_timeout": "20m",
-      "type": "virtualbox-iso",
+	  "output_directory": "builds",      
       "vboxmanage": [
-        [  "modifyvm",  "{{.Name}}",  "--memory",  "512" ],
-        [  "modifyvm",  "{{.Name}}",  "--cpus",  "1" ]
+        [  "modifyvm",  "{{.Name}}",  "--memory",  "640" ],
+        [  "modifyvm",  "{{.Name}}",  "--cpus",  "2" ]
       ],
       "virtualbox_version_file": ".vbox_version",
-      "vm_name": "tzvm-base-centos-6.5-64bit"
+      "vm_name": "tzvm-base"
     }
   ], 
+  
+  
   "post-processors": [
     {
-      "output": "./tzvm-base.box",
+      "output": "tzvm-base.box",
 	  "compression_level": "9",
       "type": "vagrant"
     }
-  ],
+  ],  
+  
+  
   "provisioners": [
-	
+	{
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+      "inline": [ 
+			"yum -y update"
+	  ],
+	  "type": "shell"
+    },  
 	{
       "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
       "scripts": [
@@ -46,8 +56,8 @@
       ],
       "type": "shell"
     },
-	{
-      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+	{      
+	  "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
       "scripts": [
 		"scripts/cleanup.sh",
 		"scripts/zerodisk.sh"
