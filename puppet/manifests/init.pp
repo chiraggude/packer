@@ -32,8 +32,7 @@ exec {
 	 'enable-remi-repo':
 			command => 'yum-config-manager --enable remi, remi-php56',
 			require => Exec["remi-repo"],
-	  ;
-  
+	  ;  
 }
 
 yumrepo { 'mariadb-repo':
@@ -53,16 +52,6 @@ file {  "/home/www":
 			mode   => 750,
 			require => Package["nginx"],
 			notify  => Service["nginx"],
-}
-
-# PHP Info
-file  {	"/home/www/index.php":
-			ensure => present,
-			owner  => 'nginx',
-			group  => 'nginx',
-			mode   => 750,
-			require => Package["nginx"],
-			source  => "puppet:///modules/turizon/index.php",
 }
 
 # Adminer
