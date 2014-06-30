@@ -15,8 +15,7 @@ exec {
   
     'epel-repo':
 			command => '/bin/rpm -ivh http://www.mirrorservice.org/sites/dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm',
-			creates => "/etc/yum.repos.d/epel.repo",
-			require => Exec["remi-repo"]
+			creates => "/etc/yum.repos.d/epel.repo"
 			;
 			
 	'nginx-repo':
@@ -26,7 +25,8 @@ exec {
 			
      'remi-repo':
 			command => '/bin/rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm',
-			creates => "/etc/yum.repos.d/remi.repo"
+			creates => "/etc/yum.repos.d/remi.repo",
+			require => Exec["remi-repo"]
 			;
 			
 	 'enable-remi-repo':
