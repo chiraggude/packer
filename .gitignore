@@ -1,3 +1,4 @@
 iso/*.iso
 packer_cache/
 *.box
+*.iso

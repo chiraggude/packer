@@ -1,4 +1,5 @@
 # Install MariaDB
+
 class mariadb::install {
 
 

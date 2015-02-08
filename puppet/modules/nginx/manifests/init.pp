@@ -1,4 +1,5 @@
 # Install NGINX
+
 class nginx::install {
 
     package { "nginx":
@@ -15,6 +16,7 @@ class nginx::install {
 }
 
 # Configure NGINX	
+
 class nginx::config {
 	  
     file {  	"/etc/nginx/nginx.conf":

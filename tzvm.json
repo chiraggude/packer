@@ -6,23 +6,23 @@
 			"<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
 		],
       "boot_wait": "10s",
-      "disk_size": 3072,
-      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+      "disk_size": 6114,
+      "guest_additions_path": "VBoxGuestAdditions.iso",
       "guest_os_type": "RedHat_64",
       "http_directory": "http",
       "iso_checksum_type": "md5",
-	  "iso_checksum": "0d9dc37b5dd4befa1c440d2174e88a87",
-      "iso_url": "iso/CentOS-6.5-x86_64-minimal.iso",
+	  "iso_checksum": "e3afe3f1121d69c40cc23f0bafa05e5d",
+      "iso_url": "iso/CentOS-7.0-1406-x86_64-Minimal.iso",
       "shutdown_command": "echo 'vagrant'|sudo -S /sbin/halt -h -p",
 	  "shutdown_timeout" : "10s",
 	  "ssh_username": "vagrant",	  
       "ssh_password": "vagrant",
-	  "ssh_port": 22,	        
+	  "ssh_port": 22,
 	  "hard_drive_interface": "sata",
 	  "output_directory": "builds",
       "ssh_wait_timeout": "20m",      
       "vboxmanage": [
-			[  "modifyvm",  "{{.Name}}",  "--memory",  "640" ],
+			[  "modifyvm",  "{{.Name}}",  "--memory",  "1024" ],
 			[  "modifyvm",  "{{.Name}}",  "--cpus",  "2" ]
 		],
       "virtualbox_version_file": ".vbox_version",
@@ -52,7 +52,7 @@
     },
 	{
 		"type": "puppet-masterless",
-		"manifest_file": "puppet/manifests/init.pp",
+		"manifest_file": "puppet/manifests/site.pp",
 		"module_paths": [ "puppet/modules" ]	
 	},	
 	{
