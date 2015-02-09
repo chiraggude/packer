@@ -1,5 +1,11 @@
 #!/bin/bash -eux
 
+# Remove Puppet
+yum remove -y puppet
+
+# Remove all useless dependencies
+yum -y autoremove
+
 # Remove stuff that is needed for building VMware/Virtualbox extensions
 yum -y remove gcc cpp kernel-devel kernel-headers
 yum -y clean all
