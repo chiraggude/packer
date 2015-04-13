@@ -23,11 +23,6 @@ exec {
 			creates => "/etc/yum.repos.d/epel.repo"
 			;
 			
-	'nginx-repo':
-			command => '/bin/rpm -ivh http://nginx.org/packages/centos/7/x86_64/RPMS/nginx-1.6.3-1.el7.ngx.x86_64.rpm',
-			creates => "/etc/yum.repos.d/nginx.repo"
-			;
-			
     	'remi-repo':
 			command => '/bin/rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm',
 			creates => "/etc/yum.repos.d/remi.repo",
@@ -39,6 +34,14 @@ exec {
 			require => [Exec["remi-repo"], Exec["yum-utils"]],
 			;
 			
+}
+
+yumrepo { 'nginx-repo':
+       name => "nginx",
+	   descr => "NGINX 1.6.X",
+	   baseurl => "http://nginx.org/packages/centos/$releasever/$basearch/",
+	   enabled => "1",
+	   gpgcheck => "0",
 }
 
 yumrepo { 'mariadb-repo':
