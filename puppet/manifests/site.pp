@@ -38,8 +38,8 @@ exec {
 
 yumrepo { 'nginx-repo':
        name => "nginx",
-	   descr => "NGINX 1.6.X",
-	   baseurl => "http://nginx.org/packages/centos/$releasever/$basearch/",
+	   descr => "NGINX - Stable",
+	   baseurl => "http://nginx.org/packages/centos/7/x86_64/",
 	   enabled => "1",
 	   gpgcheck => "0",
 }
