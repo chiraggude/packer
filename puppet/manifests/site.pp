@@ -18,7 +18,7 @@ exec {
 	  command => 'yum -y install yum-utils',
 			;
   
-    'epel-repo':
+    	'epel-repo':
 			command => 'yum -y install epel-release',
 			creates => "/etc/yum.repos.d/epel.repo"
 			;
@@ -28,7 +28,7 @@ exec {
 			creates => "/etc/yum.repos.d/nginx.repo"
 			;
 			
-    'remi-repo':
+    	'remi-repo':
 			command => '/bin/rpm -ivh http://rpms.famillecollet.com/enterprise/remi-release-7.rpm',
 			creates => "/etc/yum.repos.d/remi.repo",
 			require => Exec["epel-repo"],
@@ -36,7 +36,7 @@ exec {
 			
 	'enable-remi-repo':
 			command => 'yum-config-manager --enable remi, remi-php56',
-			require => Exec["remi-repo"],
+			require => [Exec["remi-repo"], Exec["yum-utils"]],
 			;
 			
 }
