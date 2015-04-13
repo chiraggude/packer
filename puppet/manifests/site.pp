@@ -24,7 +24,7 @@ exec {
 			;
 			
 	'nginx-repo':
-			command => '/bin/rpm -ivh http://nginx.org/packages/centos/7/x86_64/RPMS/nginx-1.6.2-1.el7.ngx.x86_64.rpm',
+			command => '/bin/rpm -ivh http://nginx.org/packages/centos/7/x86_64/RPMS/nginx-1.6.3-1.el7.ngx.x86_64.rpm',
 			creates => "/etc/yum.repos.d/nginx.repo"
 			;
 			
