@@ -19,7 +19,7 @@ exec {
 			;
   
     'epel-repo':
-			command => '/bin/rpm -ivh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm',
+			command => 'yum -y install epel-release',
 			creates => "/etc/yum.repos.d/epel.repo"
 			;
 			
