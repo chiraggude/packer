@@ -2,16 +2,16 @@
 
 class nginx::install {
 
-    package { "nginx":
+    	package { "nginx":
 		ensure => present,
-		require => Exec['nginx-repo']
-    }
+		require => Yumrepo['nginx'],
+    	}
 
 	service { "nginx":
 		ensure  => running,
 		require => Package['nginx'],
 		enable    => true
-    }
+    	}
 	
 }
 
