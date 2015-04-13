@@ -24,14 +24,14 @@ packer build tzvm.json
 
 #### TZVM v1.5 [(download)](https://www.dropbox.com/s/25d8k8f7rl73b75/tzvm.box)
 * Centos 7 x86_x64
-* NGINX 1.6.2
-* MariaDB 10
+* NGINX 1.6.3
+* MariaDB 10.0
 * PHP-FPM 5.6 
 * Built with Packer 0.7.5, Vagrant 1.7.2, VirtualBox 4.3.20
 * Provisioned by Puppet 3.7.4
 * VirtualBox VM - OS: CentOS 7 64bit, CPU: 2 Cores, RAM: 1024MB, HDD: 6GB
 
-Last updated on 8th Feb, 2015
+Last updated on 13th April, 2015
 
 ***
 
