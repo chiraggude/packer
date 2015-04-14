@@ -8,11 +8,7 @@ Package {
       allow_virtual => true,
 }
 
-exec { 
-
-	'yum-update':
-	  command => 'yum -y update',
-			;
+exec {
 	  
 	'yum-utils':
 	  command => 'yum -y install yum-utils',
@@ -37,41 +33,41 @@ exec {
 }
 
 yumrepo { 'nginx-repo':
-       name => "nginx",
-	   descr => "NGINX - Stable",
-	   baseurl => "http://nginx.org/packages/centos/7/x86_64/",
-	   enabled => "1",
-	   gpgcheck => "0",
+	name => "nginx",
+	descr => "NGINX - Stable",
+	baseurl => "http://nginx.org/packages/centos/7/x86_64/",
+	enabled => "1",
+	gpgcheck => "0",
 }
 
 yumrepo { 'mariadb-repo':
-       name => "mariadb",
-	   descr => "MariaDB 10.0",
-	   baseurl => "http://yum.mariadb.org/10.0/centos7-amd64/",
-	   enabled => "1",
-	   gpgcheck => "1",
-	   gpgkey => "https://yum.mariadb.org/RPM-GPG-KEY-MariaDB",
+	name => "mariadb",
+	descr => "MariaDB 10.0",
+	baseurl => "http://yum.mariadb.org/10.0/centos7-amd64/",
+	enabled => "1",
+	gpgcheck => "1",
+	gpgkey => "https://yum.mariadb.org/RPM-GPG-KEY-MariaDB",
 }
 
 # Create directory for hosting website
 file {  "/home/www":
-			ensure => 'directory',
-			owner  => 'nginx',
-			group  => 'nginx',
-			mode   => 750,
-			require => Package["nginx"],
-			notify  => Service["nginx"],
+	ensure => 'directory',
+	owner  => 'nginx',
+	group  => 'nginx',
+	mode   => 750,
+	require => Package["nginx"],
+	notify  => Service["nginx"],
 }
 
 # Adminer
 file  {	"/home/www/adminer":
-			ensure => directory,
-			owner  => 'nginx',
-			group  => 'nginx',
-			mode   => 644,
-			require => Package["nginx"],
-			source  => "puppet:///modules/turizon/adminer",
-			recurse => true,
+	ensure => directory,
+	owner  => 'nginx',
+	group  => 'nginx',
+	mode   => 644,
+	require => Package["nginx"],
+	source  => "puppet:///modules/turizon/adminer",
+	recurse => true,
 }
 
 # Linux-Dash
@@ -86,12 +82,12 @@ file { "/home/www/linux-dash" :
 
 # PHP sessions folder (used by Adminer)
 file {  "/var/lib/php/session":
-			ensure => 'directory',
-			recurse => true,
-			owner  => 'nginx',
-			group  => 'nginx',
-			mode   => 770,
-			require => Package["nginx", "php-fpm"],
+	ensure => 'directory',
+	recurse => true,
+	owner  => 'nginx',
+	group  => 'nginx',
+	mode   => 770,
+	require => Package["nginx", "php-fpm"],
 }
 
 
