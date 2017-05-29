@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Installing VirtualBox guest additions"
+echo "Installing VirtualBox Guest Additions"
 
 VBOX_VERSION=$(cat /home/vagrant/.vbox_version)
 

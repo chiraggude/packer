@@ -1,8 +1,5 @@
 #!/bin/bash -eux
 
-# Remove Puppet
-yum remove -y puppet
-
 # Remove all useless dependencies
 yum -y autoremove
 
@@ -12,6 +9,10 @@ yum -y clean all
 history -c
 rm -f /etc/ssh/ssh_host_*
 rm -f /tmp/*
+
+# Remove files created by Packer
+rm -f /root/anaconda-ks.cfg
+rm -f /root/ks-post.log
 
 # Clean up CentOS interface persistence
 rm -f /etc/udev/rules.d/70-persistent-net.rules
