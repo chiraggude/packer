@@ -21,16 +21,13 @@ cd zhvm-packer
 packer build zhvm.json
 ```
 
-## ZHVM v1.0 [(download)](#)
+## ZHVM v2.0
 
-* NGINX 1.8.1
-* MariaDB 10.1
-* PHP-FPM 7.0
-* Built with Packer 0.8.6, Vagrant 1.8.1, VirtualBox 5.0.14
-* OS: Centos 7.2.1511 x86_x64 Minimal
-* CPU: 2 Cores, RAM: 1024MB, HDD: 6GB
+* Built with Packer 0.8.6, Vagrant 1.9.5, VirtualBox 5.1.22
+* OS: Centos 7.3.1611 x86_x64 Minimal
+* CPU: 2 Cores, RAM: 1024MB, HDD: 8GB
 
-Last updated on 15th February, 2016
+Last updated on 29th May, 2017
 
 ***
 

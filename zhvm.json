@@ -6,13 +6,13 @@
 			"<tab> text ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
 		],
       "boot_wait": "10s",
-      "disk_size": 6114,
+      "disk_size": 8000,
       "guest_additions_path": "VBoxGuestAdditions.iso",
       "guest_os_type": "RedHat_64",
       "http_directory": "http",
-      "iso_checksum_type": "md5",
-	  "iso_checksum": "88c0437f0a14c6e2c94426df9d43cd67",
-      "iso_url": "iso/CentOS-7-x86_64-Minimal-1511.iso",
+      "iso_checksum_type": "sha256",
+	    "iso_checksum": "27bd866242ee058b7a5754e83d8ee8403e216b93d130d800852a96f41c34d86a",
+      "iso_url": "iso/CentOS-7-x86_64-Minimal-1611.iso",
       "shutdown_command": "echo 'vagrant'|sudo -S /sbin/halt -h -p",
 	  "shutdown_timeout" : "10s",
 	  "ssh_username": "vagrant",
@@ -45,24 +45,9 @@
       "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
       "scripts": [
 			"scripts/base.sh",
-			"scripts/vmtools.sh"
-		],
-      "type": "shell"
-    },
-    {
-      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
-      "scripts": [
-            "scripts/common-server.sh",
-			"scripts/app-server.sh",
-			"scripts/db-server.sh"
-		],
-      "type": "shell"
-    },
-	{
-      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
-      "scripts": [
-		"scripts/cleanup.sh",
-		"scripts/zerodisk.sh"
+			"scripts/vmtools.sh",
+		  "scripts/cleanup.sh",
+		  "scripts/zerodisk.sh"
       ],
       "type": "shell"
     }
